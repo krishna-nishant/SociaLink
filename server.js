@@ -1,12 +1,14 @@
+const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
 const path = require("path");
 const http = require("http");
 const express = require("express");
 const socketio = require("socket.io");
 const formatMessage = require("./utils/messages");
-// const createAdapter = require("@socket.io/redis-adapter").createAdapter;
-// const redis = require("redis");
+
 require("dotenv").config();
-// const { createClient } = redis;
 const {
   userJoin,
   getCurrentUser,
@@ -18,17 +20,34 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-// Set static folder
-app.use(express.static(path.join(__dirname, "public")));
+
+const dbUser = process.env.MONGODB_USER;
+const dbPassword = process.env.MONGODB_PASSWORD;
+
+mongoose
+    .connect(`mongodb+srv://${dbUser}:${dbPassword}@feedbackdata.czmwps7.mongodb.net/`, )
+    .then(() => {
+        console.log('Connected to MongoDB database!');
+    })
+    .catch(() => {
+        console.log('Connection failed!');
+    });
+
+app.use(cors({ origin: '*' }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(bodyParser.json());
+app.use(express.static('public'));
+app.use(express.json());
+
+app.use('/api', require('./routes/contacts.js'));
+
+app.use(function (err, req, res, next) {
+  res.status(422).send({ error: err.message });
+});
 
 const botName = "SociaLink Admin";
 
-// (async () => {
-//   pubClient = createClient({ url: "redis://127.0.0.1:6379" });
-//   await pubClient.connect();
-//   subClient = pubClient.duplicate();
-//   io.adapter(createAdapter(pubClient, subClient));
-// })();
 
 // Run when client connects
 io.on("connection", (socket) => {
@@ -84,4 +103,5 @@ io.on("connection", (socket) => {
 
 const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port http://localhost:3000/`));

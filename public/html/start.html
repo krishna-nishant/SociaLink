@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../css/start.css" />
+    <script
+      src="https://kit.fontawesome.com/ffdbdfdc52.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Welcome</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="form-card">
+        <div class="form-title">Welcome to SociaLink👋</div>
+
+        <div class="form-subtitle">Select your username to get started</div>
+        <form action="chat.html">
+          <div class="auth">
+            <div class="auth-label">Username</div>
+
+            <div class="form-control">
+              <input
+                class="auth-input"
+                name="username"
+                autocomplete="off"
+                required
+              />
+            </div>
+            <div class="form-control">
+              <div class="auth-label-2">Room</div>
+              <!-- <label for="room"></label> -->
+              <select name="room" id="room" class="auth-input">
+                <option value="General">General</option>
+                <option value="Study">Study</option>
+                <option value="Enjoy">Enjoy</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <button class="auth-button btn" type="submit">Authenticate</button>
+          </div>
+        </form>
+      </div>
+      <div id="leave-btn">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+      </div>
+    </div>
+    <script>
+      document.getElementById("leave-btn").addEventListener("click", () => {
+        window.location = "../index.html";
+      });
+    </script>
+  </body>
+</html>
