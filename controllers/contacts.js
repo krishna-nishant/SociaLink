@@ -6,8 +6,7 @@ exports.submitForm = async (req, res, next) => {
 
         // Basic validations
         if (!name || !email || !mobile || !message) {
-            // return res.status(400).json({ message: 'Name, email, mobile and message are required fields' });
-            window.alert("ddd");
+            return res.status(400).json({ message: 'Name, email, mobile and message are required fields' });
         }
 
         // Create a new contact instance
@@ -22,7 +21,6 @@ exports.submitForm = async (req, res, next) => {
         await newContact.save();
 
         res.status(201).json({ message: 'Contact form submitted successfully' });
-        // res.status(201).json({ newContact });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
