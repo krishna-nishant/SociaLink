@@ -25,11 +25,6 @@ body {
   padding: 25px 1.5rem;
   height: 60px;
   background-color: #181818;
-  /* position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 10; */
 }
 
 .heading {
@@ -147,14 +142,13 @@ h2 {
 
 .contact {
   display: flex;
-  /* justify-content: space-evenly; */
   gap: 30px;
 }
 
 .address {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   flex-basis: 100%;
   letter-spacing: 0.1rem;
   color: white;
@@ -168,10 +162,6 @@ h2 {
   font-size: 1.1rem;
   margin: 8px;
 }
-
-/* .contact-box form {
-  flex-basis: auto;
-} */
 
 .btns {
   display: flex;

@@ -21,7 +21,6 @@ exports.submitForm = async (req, res, next) => {
         await newContact.save();
 
         res.status(201).json({ message: 'Contact form submitted successfully' });
-        // res.status(201).json({ newContact });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
