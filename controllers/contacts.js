@@ -4,12 +4,11 @@ exports.submitForm = async (req, res, next) => {
     try {
         const { name, email, mobile, message } = req.body;
 
-        // Basic validations
+        // validations
         if (!name || !email || !mobile || !message) {
             return res.status(400).json({ message: 'Name, email, mobile and message are required fields' });
         }
 
-        // Create a new contact instance
         const newContact = new Contact({
             name: name,
             email: email,
@@ -17,7 +16,6 @@ exports.submitForm = async (req, res, next) => {
             message: message,
         });
 
-        // Save the contact to the database
         await newContact.save();
 
         res.status(201).json({ message: 'Contact form submitted successfully' });

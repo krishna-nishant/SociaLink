@@ -297,3 +297,15 @@ h2 {
     cursor: pointer;
   }
 }
+/* fix for hamburger menu */
+@media screen and (max-width: 928px) {
+  .burger-menu {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 929px) {
+  .burger-menu {
+    display: none !important;
+  }
+}
