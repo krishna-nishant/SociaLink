@@ -13,35 +13,40 @@
   </head>
   <body>
     <div class="background">
-      <div class="form-card">
-        <div class="form-title">Welcome to SociaLink👋</div>
-
-        <div class="form-subtitle">Select your username to get started</div>
-        <form action="chat.html">
-          <div class="auth">
-            <div class="auth-label">Username</div>
-
-            <div class="form-control">
-              <input
-                class="auth-input"
-                name="username"
-                autocomplete="off"
-                required
-              />
-            </div>
-            <div class="form-control">
-              <div class="auth-label-2">Room</div>
-              <!-- <label for="room"></label> -->
-              <select name="room" id="room" class="auth-input">
-                <option value="General">General</option>
-                <option value="Study">Study</option>
-                <option value="Enjoy">Enjoy</option>
-                <option value="Others">Others</option>
-              </select>
-            </div>
-            <button class="auth-button btn" type="submit">Authenticate</button>
+      <div class="form-container">
+        <div class="form-card">
+          <div class="form-title">
+            Welcome to SociaLink <span class="wave">👋</span>
           </div>
-        </form>
+          <div class="form-subtitle">Select your username to get started</div>
+          <form action="chat.html">
+            <div class="auth">
+              <div class="input-group">
+                <label class="auth-label" for="username">Username</label>
+                <input
+                  class="auth-input"
+                  id="username"
+                  name="username"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label class="auth-label" for="room">Room</label>
+                <select name="room" id="room" class="auth-input">
+                  <option value="General">General</option>
+                  <option value="Study">Study</option>
+                  <option value="Enjoy">Enjoy</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+              <button class="auth-button" type="submit">
+                <span>Join Chat</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
       <div id="leave-btn">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
